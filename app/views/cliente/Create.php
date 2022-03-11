@@ -3,14 +3,16 @@
 				<div class="base-formulario">	
 					<form action="<?php  echo URL_BASE ."cliente/salvar" ?>" method="POST">
 						<label>Nome</label>
-							<input name="nome" value="" type="text" placeholder="Insira umm nome">
+							<input name="nome" value="" type="text" placeholder="Insira um nome">
+						<label>CPF</label>
+							<input name="cpf" value="" type="text" placeholder="Insira seu CPF">
 						<label>Email</label>
-							<input name="email" value="" type="text" placeholder="Insira um email">
-						<label>Endereço</label>
-							<input name="endereco" value="" type="text" placeholder="Insira seu endereço">	
+							<input name="email" value="" type="text" placeholder="Insira um email">	
 						<div class="col">
 							<label>Telefone</label>
-							<input name="fone" value="" type="text" placeholder="Insira seu telefone">
+							<input name="telefone" value="" type="tel" placeholder="Insira seu telefone">		
+						<label>Endereço</label>
+							<input name="endereco" value="" type="text" placeholder="Insira seu endereço">
 						</div>	
 						<div class="col">
 							<label>CEP</label>
@@ -18,10 +20,6 @@
 						</div>	
 						
 						<div class="col">
-							<label>CPF</label>
-							<input name="cpf" value="" type="text" placeholder="Insira seu CPF">
-						
-						
 							<input type="hidden" name="acao" value="Cadastrar">
 							<input type="hidden" name="id" value="">
 							<input type="submit" value="Cadastrar" class="btn">

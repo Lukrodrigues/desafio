@@ -12,8 +12,6 @@ class ClienteController extends Controller{
    	$dados["clientes"] = $cliente->lista();
 // quando entrar na view busca os dados
    	$dados["view"] = "cliente/Index";
-			
-
    	$this->load("template", $dados);
        
    } 
@@ -25,6 +23,7 @@ class ClienteController extends Controller{
 
    public function edit ($id_cliente){
    $cliente = new Cliente();
+   
    $dados["cliente"] = $cliente->getCliente($id_cliente);
    $dados["view"] = "cliente/Edit";
    $this->load("template", $dados);
@@ -46,19 +45,19 @@ class ClienteController extends Controller{
 
 
    public function salvar(){
-   	$cliente  		= new Cliente();
-   	$id_cliente   	= isset ($_POST["id_cliente"]) ? strip_tags(filter_input(INPUT_POST,"id_cliente" )) : NULL;
-   	$nome   		= isset ($_POST["nome"]) ? strip_tags(filter_input(INPUT_POST,"nome" )) : NULL;
-   	$email   		= isset ($_POST["cpf"]) ? strip_tags(filter_input(INPUT_POST,"cpf" )) : NULL;
-   	$endereco   	= isset ($_POST["email"]) ? strip_tags(filter_input(INPUT_POST,"email" )) : NULL;
-   	$telefone   	= isset ($_POST["fone"]) ? strip_tags(filter_input(INPUT_POST,"telefone" )) : NULL ;
-   	$cep   			= isset ($_POST["endereco"]) ? strip_tags(filter_input(INPUT_POST,"endereco" )) : NULL;
-   	$cpf   			= isset ($_POST["cep"]) ? strip_tags(filter_input(INPUT_POST,"cep" )) : NULL;
+   	$cliente  	= new Cliente();
+   	$nome   	= isset ($_POST["nome"]) ? strip_tags(filter_input(INPUT_POST,"nome" )) : NULL;
+   	$cpf   		= isset ($_POST["cpf"]) ? strip_tags(filter_input(INPUT_POST,"cpf" )) : NULL;
+   	$email   	= isset ($_POST["email"]) ? strip_tags(filter_input(INPUT_POST,"email" )) : NULL;
+   	$telefone   = isset ($_POST["telefone"]) ? strip_tags(filter_input(INPUT_POST,"telefone" )) : NULL ;
+   	$endereco   = isset ($_POST["endereco"]) ? strip_tags(filter_input(INPUT_POST,"endereco" )) : NULL;
+   	$cep   		= isset ($_POST["cep"]) ? strip_tags(filter_input(INPUT_POST,"cep" )) : NULL;
 
-   	/*echo $nome . "/". $email ."/" . $telefone . "/" . $cpf . "/" . $endereco . "/" . $cep ;*/
+  /*	echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
+  exit();*/
 
-   		if($id_cliente){
-   			$cliente->editar($id_cliente, $nome, $cpf, $email, $telefone, $endereco, $cep);
+  		if($id_cliente){
+   			$cliente->editar($nome, $cpf, $email, $telefone, $endereco, $cep);
    		}else{
 
    			$cliente->inserir($nome, $cpf, $email, $telefone, $endereco, $cep);
@@ -66,8 +65,8 @@ class ClienteController extends Controller{
 
    		/*echo "<prev>";
    	      print_r($cliente);
-        exit;*/
-
+        exit;
+        */
    		header("location:" . URL_BASE ."cliente");
    }
 }

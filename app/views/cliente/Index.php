@@ -9,10 +9,10 @@
 								<th width="25%" align="left">Nome</th>
 								<th width="10%" align="left">Cpf</th>
 								<th width="10%" align="left">Email</th>
-								<th width="25%" align="left">Telefone</th>
-								<th width="10%" align="left">Endereco</th>
+								<th width="10%" align="left">Telefone</th>
+								<th width="25%" align="left">Endereco</th>
 								<th width="10%" align="left">Cep</th>
-								<th width="25%" align="left">ativo</th>
+								<th width="10%" align="left">ativo</th>
 
 								<th width="20%" colspan="2" align="center">Alterar</th>
 							  </tr>

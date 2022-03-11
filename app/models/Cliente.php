@@ -29,7 +29,7 @@ class Cliente extends Model{
 
     }
 
-    public function inserir($nome, $email, $telefone, $endereco, $cpf, $cep){
+    public function inserir($nome, $cpf, $email, $telefone, $endereco, $cep){
     	$sql = "INSERT INTO cliente SET nome =:nome, cpf =:cpf, email =:email, telefone =:telefone, endereco =:endereco, cep =:cep";
 
     	$qry = $this->db->prepare($sql);
@@ -43,14 +43,14 @@ class Cliente extends Model{
 
     	$qry->execute();
 
-    /*	echo "<prev>";
+    	/*echo "<prev>";
    	      print_r($sql);
         exit;*/
 
     	return $this->db->lastInsertId();
     }
 
-    public function editar($id_cliente, $nome, $email, $telefone, $endereco, $cpf, $cep){
+    public function editar($nome, $email, $telefone, $endereco, $cpf, $cep, $id_cliente){
     	$sql = "UPDATE cliente SET nome =:nome, cpf =:cpf, email =:email, telefone =:telefone, endereco =:endereco, cep =:cep WHERE id_cliente = :id_cliente";
 
     	$qry = $this->db->prepare($sql);
