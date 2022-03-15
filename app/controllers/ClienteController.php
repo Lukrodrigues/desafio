@@ -1,6 +1,6 @@
 <?php
 namespace app\controllers;
-use \app\core\Controller;
+use app\core\Controller;
 use app\models\Cliente;
 
 //buscar a view no controler template
@@ -46,6 +46,7 @@ class ClienteController extends Controller{
 
    public function salvar(){
    	$cliente  	= new Cliente();
+   	$id_cliente = isset ($_POST["id_cliente"]) ? strip_tags(filter_input(INPUT_POST,"id_cliente" )) : NULL;
    	$nome   	= isset ($_POST["nome"]) ? strip_tags(filter_input(INPUT_POST,"nome" )) : NULL;
    	$cpf   		= isset ($_POST["cpf"]) ? strip_tags(filter_input(INPUT_POST,"cpf" )) : NULL;
    	$email   	= isset ($_POST["email"]) ? strip_tags(filter_input(INPUT_POST,"email" )) : NULL;
@@ -53,7 +54,7 @@ class ClienteController extends Controller{
    	$endereco   = isset ($_POST["endereco"]) ? strip_tags(filter_input(INPUT_POST,"endereco" )) : NULL;
    	$cep   		= isset ($_POST["cep"]) ? strip_tags(filter_input(INPUT_POST,"cep" )) : NULL;
 
-  /*	echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
+ /* echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
   exit();*/
 
   		if($id_cliente){

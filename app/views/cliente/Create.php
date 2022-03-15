@@ -5,18 +5,18 @@
 						<label>Nome</label>
 							<input name="nome" value="" type="text" placeholder="Insira um nome">
 						<label>CPF</label>
-							<input name="cpf" value="" type="text" placeholder="Insira seu CPF">
+							<input name="cpf" value="" type="number" placeholder="Insira seu CPF">
 						<label>Email</label>
-							<input name="email" value="" type="text" placeholder="Insira um email">	
+							<input name="email" value="" type="email" placeholder="Insira um email">	
 						<div class="col">
 							<label>Telefone</label>
-							<input name="telefone" value="" type="tel" placeholder="Insira seu telefone">		
+							<input name="telefone" value="" type="number" placeholder="Insira seu telefone">		
 						<label>Endereço</label>
 							<input name="endereco" value="" type="text" placeholder="Insira seu endereço">
 						</div>	
 						<div class="col">
 							<label>CEP</label>
-							<input name="cep" value="" type="text" placeholder="Insira seu CEP">
+							<input name="cep" value="" type="number" placeholder="Insira seu CEP">
 						</div>	
 						
 						<div class="col">

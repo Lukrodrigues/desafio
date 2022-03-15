@@ -43,14 +43,14 @@ class Cliente extends Model{
 
     	$qry->execute();
 
-    	/*echo "<prev>";
+    /*	echo "<prev>";
    	      print_r($sql);
         exit;*/
 
     	return $this->db->lastInsertId();
     }
 
-    public function editar($nome, $email, $telefone, $endereco, $cpf, $cep, $id_cliente){
+    public function editar($nome, $cpf, $email, $telefone, $endereco, $cep, $id_cliente){
     	$sql = "UPDATE cliente SET nome =:nome, cpf =:cpf, email =:email, telefone =:telefone, endereco =:endereco, cep =:cep WHERE id_cliente = :id_cliente";
 
     	$qry = $this->db->prepare($sql);
