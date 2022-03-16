@@ -12,7 +12,7 @@
 		
 		<nav class="menu">
 			<ul>
-				<li><a href="<?php echo URL_BASE ?>">Home</a></li>
+			<!--	<li><a href="<?php echo URL_BASE ?>">Home</a></li> !-->
 				<li><a href="<?php echo URL_BASE  . "cliente/novo" ?>">Cadastrar novo</a></li>
 				<li><a href="<?php echo URL_BASE  . "cliente" ?>">Lista de contatos</a></li>
 				

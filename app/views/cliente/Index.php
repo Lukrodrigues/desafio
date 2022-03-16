@@ -29,10 +29,10 @@
 								<td><?php echo $cliente->ativo ?></td>
 								
 								<td align="center">
-									<a href="<?php echo URL_BASE . "cliente/edit" , $cliente->id_cliente ?>" class="btn">Editar</a>
+									<a href="<?php echo URL_BASE . "cliente/edit/" . $cliente->id_cliente ?>" class="btn">Editar</a>
 								</td>
 								<td align="center">
-									<a href="<?php echo URL_BASE . "cliente/delete" , $cliente->id_cliente ?>" class="btn excluir">excluir</a>
+									<a href="<?php echo URL_BASE . "cliente/delete/" . $cliente->id_cliente ?>" class="btn excluir">excluir</a>
 								</td>
 							 </tr>	
 							<?php } ?>

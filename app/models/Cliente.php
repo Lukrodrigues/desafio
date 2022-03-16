@@ -18,10 +18,11 @@ class Cliente extends Model{
     public function getCliente($id_cliente){
     	$resultado = array();
     	$sql = "SELECT * FROM cliente WHERE id_cliente = :id_cliente";
+    	$qry = $this->db->prepare($sql);
     	$qry->bindValue(":id_cliente", $id_cliente);
     	$qry->execute();
 
-    	if($qry->roeCount() > 0){
+    	if($qry->rowCount()> 0){
     		$resultado = $qry->fetch(\PDO::FETCH_OBJ);
 
     		return $resultado;
@@ -50,11 +51,12 @@ class Cliente extends Model{
     	return $this->db->lastInsertId();
     }
 
-    public function editar($nome, $cpf, $email, $telefone, $endereco, $cep, $id_cliente){
+    public function editar($id_cliente, $nome, $cpf, $email, $telefone, $endereco, $cep){
     	$sql = "UPDATE cliente SET nome =:nome, cpf =:cpf, email =:email, telefone =:telefone, endereco =:endereco, cep =:cep WHERE id_cliente = :id_cliente";
 
     	$qry = $this->db->prepare($sql);
 
+    	
     	$qry->bindValue(":nome", $nome);
     	$qry->bindValue(":cpf", $cpf);
     	$qry->bindValue(":email", $email);
@@ -62,6 +64,7 @@ class Cliente extends Model{
     	$qry->bindValue(":endereco", $endereco);
     	$qry->bindValue(":cep", $cep);
     	$qry->bindValue(":id_cliente", $id_cliente);
+    	
 
     	$qry->execute();
 
@@ -74,9 +77,7 @@ class Cliente extends Model{
     	$sql = "DELETE FROM  cliente WHERE id_cliente = :id_cliente";
 
     	$qry = $this->db->prepare($sql);
-
     	$qry->bindValue(":id_cliente", $id_cliente);
-
     	$qry->execute();
 
     }

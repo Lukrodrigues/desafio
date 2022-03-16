@@ -26,6 +26,10 @@ class ClienteController extends Controller{
    
    $dados["cliente"] = $cliente->getCliente($id_cliente);
    $dados["view"] = "cliente/Edit";
+
+   /*var_dump($dados);
+   exit;*/
+
    $this->load("template", $dados);
 
 	}
@@ -39,6 +43,7 @@ class ClienteController extends Controller{
 		exit;
 		}
 
+		$dados["cliente"] = $cliente->getCliente($id_cliente);
 		$dados["view"] = "cliente/Delete";
 		$this->load("template", $dados);
 	}
@@ -46,28 +51,32 @@ class ClienteController extends Controller{
 
    public function salvar(){
    	$cliente  	= new Cliente();
-   	$id_cliente = isset ($_POST["id_cliente"]) ? strip_tags(filter_input(INPUT_POST,"id_cliente" )) : NULL;
+   	
    	$nome   	= isset ($_POST["nome"]) ? strip_tags(filter_input(INPUT_POST,"nome" )) : NULL;
    	$cpf   		= isset ($_POST["cpf"]) ? strip_tags(filter_input(INPUT_POST,"cpf" )) : NULL;
    	$email   	= isset ($_POST["email"]) ? strip_tags(filter_input(INPUT_POST,"email" )) : NULL;
    	$telefone   = isset ($_POST["telefone"]) ? strip_tags(filter_input(INPUT_POST,"telefone" )) : NULL ;
    	$endereco   = isset ($_POST["endereco"]) ? strip_tags(filter_input(INPUT_POST,"endereco" )) : NULL;
    	$cep   		= isset ($_POST["cep"]) ? strip_tags(filter_input(INPUT_POST,"cep" )) : NULL;
+   	$id_cliente = isset ($_POST["id_cliente"]) ? strip_tags(filter_input(INPUT_POST,"id_cliente" )) : NULL;
 
- /* echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
+ /*echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
   exit();*/
 
   		if($id_cliente){
-   			$cliente->editar($nome, $cpf, $email, $telefone, $endereco, $cep);
+   			$cliente->editar($id_cliente,$nome, $cpf, $email, $telefone, $endereco, $cep);
    		}else{
 
    			$cliente->inserir($nome, $cpf, $email, $telefone, $endereco, $cep);
    		}
 
-   		/*echo "<prev>";
+   	/*	echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
+  exit();*/
+
+   	/*	echo "<prev>";
    	      print_r($cliente);
-        exit;
-        */
+        exit; */
+        
    		header("location:" . URL_BASE ."cliente");
    }
 }
