@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 use app\core\Controller;
-use app\models\Cliente;
+use app\models\Produto;
 
 //buscar a view no controler template
 class ProdutoController extends Controller{
