@@ -9,8 +9,8 @@
 						<label>Email</label>
 							<input name="email" value="" type="email" placeholder="Insira um email">	
 						<div class="col">
-							<label>Telefone</label>
-							<input name="telefone" value="" type="text" placeholder="Insira seu telefone">
+							<label>Data_Nascimento</label>
+							<input name="data_nascimento" value="" type="date" placeholder="Insira seu telefone">
 						</div>
 						<div class="col">		
 						<label>Endereço</label>

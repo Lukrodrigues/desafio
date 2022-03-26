@@ -55,19 +55,20 @@ class ClienteController extends Controller{
    	$nome   	= isset ($_POST["nome"]) ? strip_tags(filter_input(INPUT_POST,"nome" )) : NULL;
    	$cpf   		= isset ($_POST["cpf"]) ? strip_tags(filter_input(INPUT_POST,"cpf" )) : NULL;
    	$email   	= isset ($_POST["email"]) ? strip_tags(filter_input(INPUT_POST,"email" )) : NULL;
-   	$telefone   = isset ($_POST["telefone"]) ? strip_tags(filter_input(INPUT_POST,"telefone" )) : NULL ;
+   	$data_nascimento   = isset ($_POST["data_nascimento"]) ? strip_tags(filter_input(INPUT_POST,"date" )) : NULL ;
    	$endereco   = isset ($_POST["endereco"]) ? strip_tags(filter_input(INPUT_POST,"endereco" )) : NULL;
    	$cep   		= isset ($_POST["cep"]) ? strip_tags(filter_input(INPUT_POST,"cep" )) : NULL;
    	$id_cliente = isset ($_POST["id_cliente"]) ? strip_tags(filter_input(INPUT_POST,"id_cliente" )) : NULL;
 
- /*echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;
+/*
+ echo $nome . "/". $cpf ."/" . $email . "/" . $data_nascimento . "/" . $endereco . "/" . $cep ;
   exit();*/
 
   		if($id_cliente){
-   			$cliente->editar($id_cliente,$nome, $cpf, $email, $telefone, $endereco, $cep);
+   			$cliente->editar($id_cliente,$nome, $cpf, $email, $data_nascimento, $endereco, $cep);
    		}else{
 
-   			$cliente->inserir($nome, $cpf, $email, $telefone, $endereco, $cep);
+   			$cliente->inserir($nome, $cpf, $email, $data_nascimento, $endereco, $cep);
    		}
 
    	/*	echo $nome . "/". $cpf ."/" . $email . "/" . $telefone . "/" . $endereco . "/" . $cep ;

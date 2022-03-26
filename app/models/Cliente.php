@@ -30,15 +30,15 @@ class Cliente extends Model{
 
     }
 
-    public function inserir($nome, $cpf, $email, $telefone, $endereco, $cep){
-    	$sql = "INSERT INTO cliente SET nome =:nome, cpf =:cpf, email =:email, telefone =:telefone, endereco =:endereco, cep =:cep";
+    public function inserir($nome, $cpf, $email, $data_nascimento, $endereco, $cep){
+    	$sql = "INSERT INTO cliente SET nome =:nome, cpf =:cpf, email =:email, data_nascimento =:data_nascimento, endereco =:endereco, cep =:cep";
 
     	$qry = $this->db->prepare($sql);
 
     	$qry->bindValue(":nome", $nome);
     	$qry->bindValue(":cpf", $cpf);
     	$qry->bindValue(":email", $email);
-    	$qry->bindValue(":telefone", $telefone);
+    	$qry->bindValue(":data_nascimento", $data_nascimento);
     	$qry->bindValue(":endereco", $endereco);
     	$qry->bindValue(":cep", $cep);
 
@@ -51,8 +51,8 @@ class Cliente extends Model{
     	return $this->db->lastInsertId();
     }
 
-    public function editar($id_cliente, $nome, $cpf, $email, $telefone, $endereco, $cep){
-    	$sql = "UPDATE cliente SET nome =:nome, cpf =:cpf, email =:email, telefone =:telefone, endereco =:endereco, cep =:cep WHERE id_cliente = :id_cliente";
+    public function editar($id_cliente, $nome, $cpf, $email, $data_nascimento, $endereco, $cep){
+    	$sql = "UPDATE cliente SET nome =:nome, cpf =:cpf, email =:email, data_nascimento =:data_nascimento, endereco =:endereco, cep =:cep WHERE id_cliente = :id_cliente";
 
     	$qry = $this->db->prepare($sql);
 
@@ -60,7 +60,7 @@ class Cliente extends Model{
     	$qry->bindValue(":nome", $nome);
     	$qry->bindValue(":cpf", $cpf);
     	$qry->bindValue(":email", $email);
-    	$qry->bindValue(":telefone", $telefone);
+    	$qry->bindValue(":data_nascimento", $data_nascimento);
     	$qry->bindValue(":endereco", $endereco);
     	$qry->bindValue(":cep", $cep);
     	$qry->bindValue(":id_cliente", $id_cliente);
